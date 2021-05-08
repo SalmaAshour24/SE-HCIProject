@@ -17,7 +17,7 @@ session_start();
   border-radius: 25px;
 
 }
-    
+ /*body,html*/   
   body, html {
   height: 100%;
   margin: 0;
