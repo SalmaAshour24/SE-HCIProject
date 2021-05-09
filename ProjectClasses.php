@@ -48,4 +48,37 @@ class User
 	      echo "Error: ".$sql."<br>".$conn->error;
 	    }
     }
+    public function getpicture()
+    {
+    	$id=$_SESSION["Uid"];
+    	$conn = DB::connect();
+    	$sql="SELECT * FROM user WHERE id='$id' ";
+		$result = mysqli_query($conn,$sql);
+		//echo $conn->error;
+		if($row=mysqli_fetch_array($result))
+		{
+			$picture=$row["picture"];
+	    }
+	    return $picture;
+    }
+    public function getutype()
+    {
+    	$id=$_SESSION["Uid"];
+    	$conn = DB::connect();
+    	$sql="SELECT * FROM user WHERE id='$id' ";
+		$result = mysqli_query($conn,$sql);
+		//echo $conn->error;
+		if($row=mysqli_fetch_array($result))
+		{
+			$utypen=$row["usertype"];
+			$sql1="SELECT * FROM usertype WHERE id='$utypen' ";
+			$result1 = mysqli_query($conn,$sql1);
+			//echo $conn->error;
+			if($row1=mysqli_fetch_array($result1))
+			{
+				$utype=$row1["name"];
+		    }
+	    }
+	    return $utype;
+    }
 }
