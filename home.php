@@ -162,7 +162,24 @@ li a:hover:not(.active) {
 <body>
   <?php  
     if(isset($_SESSION['type']))
-    { ?>
+    {
+    if($_SESSION['type']==1)
+    	{?>
+    		<ul>
+			  <li style="margin-left: 70px;"><a href="#home">Home</a></li>
+			  <li><a href="#contact">Categories</a></li>
+			  <li style="float: right; margin-right: 100px;"><a href="signout.php" class="button1">Sign Out</a></li>
+			</ul>
+			<img src="green-leaves-10.png" alt="Norway" class="img3">
+
+			<div class="bg-image"></div>
+			<div class="bg-text">
+			  <h2 style="font-size:50px">Start building your landscape design..</h2><br><br>
+			</div>
+			<h3 >About Us</h3>
+    	<?php }
+    	?>
+    
     
 <?php } 
 else
