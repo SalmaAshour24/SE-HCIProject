@@ -103,4 +103,27 @@ class User
 	    }
 	    return $utype;
     }
+    public function edit($FName,$LName,$Eemail,$Ppassword,$PhoneNum)
+    {
+    	$fname=$FName;
+	    $lname=$LName;
+	    $password=$Ppassword;
+	    $email=$Eemail;
+	    $phonenumber=$PhoneNum;
+	    $gender=$Gender;
+	    $i=$_SESSION["Uid"];
+    	$conn = DB::connect();
+    	$sql="UPDATE user  SET firstname='$fname',lastname='$lname',email='$email',password='$password',phonenum='$phonenumber' WHERE id='$i'";
+    	echo $conn->error;
+	    if($conn->query($sql)==true)
+	    {
+	      $_SESSION["name"]=$fname;
+	      echo "<meta http-equiv=\"refresh\"content=\"0;URL=profile.php\">";
+	      //echo '<script>alert("updated successfully")</script>';
+	    }
+	    else 
+	    {
+	      echo "Error: ".$sql."<br>".$conn->error;
+	    }
+    }
 }

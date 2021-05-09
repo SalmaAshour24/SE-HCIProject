@@ -20,8 +20,9 @@
                         <input class="input-form" type="password" name="password" placeholder="enter your password" required><br><br><br>
                         <input class="submit-form" type="submit" value="Sign in" name="submit">
                         <h4 style="font-family: Salsa,monospace;    color: 66816B; margin-top:40px; margin-left:-11px;">don't have an account?</h4>
-                        <input class="submit-form" type="submit" value="Sign up" name="submit">    
-                    </form>
+                         </form>
+                    <form id="login-form" action='signup.php'>
+                    <input class="submit-form" type="submit" value="Sign up" name="submit"></form>
                 </div>
        </div>
         </div>
