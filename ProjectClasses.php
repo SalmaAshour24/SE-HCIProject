@@ -27,6 +27,28 @@ class User
     public $gender;
     public $picture;
     public $utype;
+    
+    public function SignIn($Eemail,$Ppassword)
+    {
+    	$conn = DB::connect();
+    	$email=$Eemail;
+        $password=$Ppassword;
+    	$sql="SELECT * FROM user WHERE email='$email' AND password='$password' ";
+		$result = mysqli_query($conn,$sql);
+		//echo $conn->error;
+		if($row=mysqli_fetch_array($result))
+		{
+			$_SESSION["type"]=$row["usertype"];
+			$_SESSION["Uid"]=$row["id"];
+			$_SESSION["name"]=$row["firstname"];
+	        header("Location:profile.php");
+	    }
+		else
+		{
+			echo '<script>alert("Entered wrong Email or Password")</script>';
+		}
+    }
+    
     public function SignUp($FName,$LName,$Eemail,$Ppassword,$Gender,$PhoneNum)
     {
     	$fname=$FName;
