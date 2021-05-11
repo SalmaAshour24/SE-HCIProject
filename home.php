@@ -264,7 +264,7 @@ else
 
 <div style=" 
  background-color:#24421F; position:relative; top:160px; left:90px; width: 1380px; border-radius: 30px; height: 528px; ">
-    <img src="back.jpeg" alt="Norway" class="background"  >
+    <img src="back.jpg" alt="Norway" class="background"  >
     <p style="font-size:35px; top:200px;  left:400px; color:white;
 position:absolute;">Start building your landscape design..</p><br><br>
 
