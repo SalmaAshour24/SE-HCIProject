@@ -228,6 +228,11 @@ if(isset($_POST['sub']))
   $User->edit($FN,$LN,$email,$P,$M);
 }
 ?>
+
+</div>
+</div>
+</div>
+
 </div>
 </div>
 

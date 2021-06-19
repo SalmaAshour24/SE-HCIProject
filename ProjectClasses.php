@@ -41,7 +41,7 @@ class User
 			$_SESSION["type"]=$row["usertype"];
 			$_SESSION["Uid"]=$row["id"];
 			$_SESSION["name"]=$row["firstname"];
-	        header("Location:profile.php");
+	        header("Location:adduser.php");
 	    }
 		else
 		{
@@ -125,5 +125,34 @@ class User
 	    {
 	      echo "Error: ".$sql."<br>".$conn->error;
 	    }
-    }
+ }
+
+}
+
+class Manager extends User{
+
+ public function AddUser($FName,$LName,$Eemail,$Ppassword,$Gender,$PhoneNum)
+ {   
+    	$fname=$FName;
+	    $lname=$LName;
+	    $password=$Ppassword;
+	    $email=$Eemail;
+	    $phonenumber=$PhoneNum;
+	    $gender=$Gender;
+	    $i=$_SESSION["Uid"];
+    	$conn = DB::connect();
+    	$sql="UPDATE user  SET firstname='$fname',lastname='$lname',email='$email',password='$password',phonenum='$phonenumber' WHERE id='$i'";
+    	echo $conn->error;
+	    if($conn->query($sql)==true)
+	    {
+	      $_SESSION["name"]=$fname;
+	      echo "<meta http-equiv=\"refresh\"content=\"0;URL=profile.php\">";
+	      //echo '<script>alert("updated successfully")</script>';
+	    }
+	    else 
+	    {
+	      echo "Error: ".$sql."<br>".$conn->error;
+	    }
+ 
+ }
 }
