@@ -22,11 +22,8 @@
  <b><a style='font-family: "Sansation",monospace;' href="#home">Home</a></b>
      <b><a style='font-family: "Sansation",monospace; font-size:18px;' href="#about">About</a></b>
      <b><a style='font-family: "Sansation",monospace; font-size:18px;' href="#Services">Services</a></b>
-     <b><a style='font-family: "Sansation",monospace; font-size:18px;' href="#cat">Categories</a></b><?php
-if($_SESSION["type"]==2)
-        {?>
-         <b><a style='font-family: "Sansation",monospace; font-size:18px;' href="contactus.php">Contact Us</a></b>
-        <?php } ?>
+     <b><a style='font-family: "Sansation",monospace; font-size:18px;' href="#cat">Categories</a></b>
+
     <?php if(isset($_SESSION["Uid"]))
          { ?>
           <?php
@@ -47,6 +44,7 @@ if($_SESSION["type"]==2)
             <?php
     if($_SESSION["type"]==2)
         {?>
+        	     <b><a style='font-family: "Sansation",monospace; font-size:18px;' href="contactus.php">Contact Us</a></b>
           <b><a style='font-family: "Sansation",monospace; font-size:18px;' href="custome.php">Start building my design</a></b>
        
        <?php }?>
@@ -127,6 +125,8 @@ if($_SESSION["type"]==2)
 <div>
     <!-- Portfolio Gallery Grid -->
    <?php
+    if(isset($_SESSION["type"]))
+    {
     if($_SESSION["type"]==1||$_SESSION["type"]==3)
     {
         $alldesigns=categories::getAllDesigns();
@@ -221,6 +221,54 @@ if($_SESSION["type"]==2)
         }
        }
     }
+    }
+       else
+       {
+           $alldesigns=categories::getAllDesigns();
+    $count=0;
+	foreach ($alldesigns as $design){
+            if($count<6)
+            {
+                if($design->cat==1)
+                {
+
+                 echo '<div class="columnmain villa">
+                    <div class="content">
+                    <img src="css1/'.$design->picture.'" alt="Mountains" style="width:100%;height:40%">
+                      <h4 style="text-align: center;margin-top:15px;">'.$design->name.'</h4>
+                    </div>
+                  </div>
+                  ';
+                    $count++;
+
+                 } 
+                if($design->cat==2)
+                {
+
+                  echo '<div class="columnmain garden">
+                    <div class="content">
+                    <img src="css1/'.$design->picture.'" alt="Mountains" style="width:100%;height:40%">
+                      <h4 style="text-align: center;margin-top:15px;">'.$design->name.'</h4>
+                    </div>
+                  </div>
+                  ';
+                    $count++;
+                 } 
+                if($design->cat==3)
+                {
+
+                  echo '<div class="columnmain others">
+                    <div class="content">
+                    <img src="css1/'.$design->picture.'" alt="Mountains" style="width:100%;height:40%">
+                      <h4 style="text-align: center;margin-top:15px;">'.$design->name.'</h4>
+                    </div>
+                  </div>
+                  ';
+                    $count++;
+                 }
+       }
+    }
+       }
     ?>
    
 <!-- END GRID -->
